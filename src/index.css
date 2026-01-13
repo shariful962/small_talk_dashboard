@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import "tailwindcss";
+
+*{
+  font-family: "Poppins', sans-serif";
+}
+
+@theme {
+  /* --font-Poppins: 'Poppins', sans-serif; */
+  --font-EBGaramond: 'EB Garamond', serif;
+  --color-Primary: #FEFDDE;
+  --color-Secondary: #E27B4F;
+  --color-textClr: #154452;
+  --shadow-custom: 0px 1px 6px 0px rgba(0, 0, 0, 0.25);
+
+}
+.flexCenter {
+  @apply flex items-center justify-center
+}
+.flexBetween {
+  @apply flex items-center justify-between
+}
+.label-control {
+  @apply block text-textClr text-lg mb-2
+}
+.form-control {
+  @apply w-full h-[50px] border border-[#919191] rounded-lg px-3 py-2 outline-none;
+}
+.title {
+  @apply text-[24px] md:text-[30px] lg:text-[36px] font-semibold;
+}
+
+/* settings  */
+.settings-menu {
+  @apply flex justify-between items-center py-3 cursor-pointer border-b border-gray-300;
+}
+
+/* confirmation modal  */
+
+.confirmYes {
+  @apply px-4 py-2 rounded bg-[#EF4444] text-white cursor-pointer
+
+}
+.confirmNo {
+  @apply px-4 py-2 rounded border border-Secondary text-Secondary cursor-pointer transition-all hover:bg-Secondary hover:text-white duration-300;
+}
