@@ -51,7 +51,7 @@ export const Icons = {
     Shellfish: Shellfish,
     delet: delet,
     nut: nut,
-    egg: egg,
+    egg: egg, 
     dairy: dairy,
     Salad: Salad,
     Coffee: Coffee,

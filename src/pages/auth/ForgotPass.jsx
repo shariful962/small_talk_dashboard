@@ -28,16 +28,16 @@ const ForgotPass = ({ initialStep, initialEmail }) => {
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="w-full max-w-[691px] mx-auto px-4">
-        <div className="text-center space-y-8 mb-4">
-          <img
-            src={Icons.SigninLogo}
-            alt="sign_in logo"
-            className="w-[150px] inline-block"
-          />
-          <h1 className="text-[32px] md:[48px] lg:[64px] font-EBGaramond font-bold text-textClr tracking-widest">
-            Menu Sidekick
-          </h1>
-        </div>
+         <div className="text-center space-y-8 mb-4">
+                  <img
+                    src={Icons.navLogo}
+                    alt="sign_in logo"
+                    className="w-[150px] inline-block border border-gray-200"
+                  />
+                  {/* <h1 className="text-[32px] md:[48px] lg:[64px] font-EBGaramond font-bold text-textClr tracking-widest">
+                    Menu Sidekick
+                  </h1> */}
+                </div>
 
         {/* function  */}
         {step === "email" && (

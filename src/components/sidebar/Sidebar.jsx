@@ -14,7 +14,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     { name: "Users Management", path: "/user", black: Icons.userdef, white: Icons.userWhite },
     { name: "Earnings", path: "/earn", black: Icons.earnDef, white: Icons.earnWhite },
     { name: "Subscriptions", path: "/subscription", black: Icons.subsDef, white: Icons.subsWhite },
-    { name: "Category", path: "/category", black: Icons.categoryDef, white: Icons.categoryWhite },
+    // { name: "Category", path: "/category", black: Icons.categoryDef, white: Icons.categoryWhite },
     // { name: "Create Admin", path: "/createadmin", black: Icons.createAdminDef, white: Icons.crateAdminWhite },
     // { name: "Feedback", path: "/feedback", black: Icons.feedbackDef, white: Icons.feedbackWhite },
     { name: "Settings", path: "/settings", black: Icons.settingsDef, white: Icons.settingsWhite },
@@ -23,7 +23,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
   const handleLogout = () => {
     // Clear user session or token here
     // localStorage.removeItem("token"); // example
-    navigate("/signin"); // redirect to login page
+    navigate("/"); // redirect to login page
   };
 
   return (
