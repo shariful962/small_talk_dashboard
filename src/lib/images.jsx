@@ -1,4 +1,4 @@
-import logo from '../assets/sidebar/logo.png'
+import logo from '../assets/logo.png'
 import dashboardDefaut from '../assets/sidebar/dashboardDefault.svg'
 import dashboardWhite from '../assets/sidebar/dashboardWhite.svg'
 import userWhite from '../assets/sidebar/userWhite.svg'
@@ -42,6 +42,7 @@ import nut from '../assets/category/Allergies/nut.jpeg'
 import Shellfish from '../assets/category/Allergies/Shellfish.jpg'
 import delet from '../assets/category/delete.svg'
 import edit from '../assets/category/edit.svg'
+
 
 
 export const Icons = {

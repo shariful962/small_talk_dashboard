@@ -164,7 +164,7 @@ const Users = () => {
                     color: "#727272", // text color
                   },
                   "& .Mui-selected": {
-                    backgroundColor: "#E27B4F !important", // active page bg
+                    backgroundColor: "#00C1C0 !important", // active page bg
                     color: "white", // active page text
                   },
                 }}

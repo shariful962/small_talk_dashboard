@@ -38,7 +38,7 @@ const Feedback = () => {
 
         {/* Users Table */}
         <div className="mt-7.5 overflow-x-auto px-4">
-          <table className="w-full text-left">
+          <table className="w-full table-auto text-left">
             <thead className="border-b border-[#154452]">
               <tr>
                 <th className="px-4 py-3">S.lD</th>

@@ -152,7 +152,7 @@ const Dashboard = () => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="users" fill="#E8632C" barSize={22} />
+            <Bar dataKey="users" fill="#00C1C0" barSize={22} />
             <ReferenceLine y={0} stroke="#000" />
           </BarChart>
         </ResponsiveContainer>

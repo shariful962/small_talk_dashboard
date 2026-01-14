@@ -98,7 +98,7 @@ const Earnings = () => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Bar dataKey="users" fill="#E8632C" barSize={38} />
+              <Bar dataKey="users" fill="#00C1C0" barSize={38} />
               <ReferenceLine y={0} stroke="#000" />
             </BarChart>
           </ResponsiveContainer>
@@ -180,7 +180,7 @@ const Earnings = () => {
                     color: "#727272", // text color
                   },
                   "& .Mui-selected": {
-                    backgroundColor: "#E27B4F !important", // active page bg
+                    backgroundColor: "#00C1C0 !important", // active page bg
                     color: "white", // active page text
                   },
                 }}
