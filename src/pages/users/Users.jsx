@@ -1,23 +1,16 @@
 // Users.jsx
 import { Search } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { FaBan } from "react-icons/fa";
 import { LuEye } from "react-icons/lu";
-import UserModal from "./UserModal";
-import ConfirmBlockModal from "./ConfirmBlockModal";
+import UserModal from "../../common/UserModal";
 import { users } from "./data";
 
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import { Link } from "react-router";
 
 const Users = () => {
   const [search, setSearch] = useState("");
   const [selectedUser, setSelectedUser] = useState(null);
-
-  // Centralized block state
-  const [blockModalOpen, setBlockModalOpen] = useState(false);
-  const [userToBlock, setUserToBlock] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const perUsersPage = 5;
 
@@ -31,23 +24,6 @@ const Users = () => {
       user.email.toLowerCase().includes(search.toLowerCase()) ||
       user.phone.includes(search.toLowerCase())
   );
-
-  const handleRequestBlock = (user) => {
-    setUserToBlock(user);
-    setBlockModalOpen(true);
-  };
-
-  const handleConfirmBlock = () => {
-    console.log("Blocked user:", userToBlock);
-    setBlockModalOpen(false);
-    setUserToBlock(null);
-    setSelectedUser(null); // Optional: close UserModal if open
-  };
-
-  const handleCancelBlock = () => {
-    setBlockModalOpen(false);
-    setUserToBlock(null);
-  };
 
   // pagination
   const totalPages = Math.ceil(filterUsers.length / perUsersPage);
@@ -77,9 +53,6 @@ const Users = () => {
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
-              <Link to={'/user/block'} className="h-[42px] px-6 w-max py-2 bg-white text-Secondary rounded font-bold">
-                Blocked Users
-              </Link>
             </div>
           </div>
         </div>
@@ -118,11 +91,6 @@ const Users = () => {
                       {user.date}
                     </td>
                     <td className="px-4 py-3 flex items-center gap-x-3">
-                      <FaBan
-                        size={20}
-                        className="text-Secondary cursor-pointer"
-                        onClick={() => handleRequestBlock(user)}
-                      />
                       <LuEye
                         size={20}
                         className="text-[#154452] cursor-pointer"
@@ -141,16 +109,14 @@ const Users = () => {
             </tbody>
           </table>
         </div>
+
         {/* Pagination Footer */}
         {totalPages > 1 && (
           <div className="mt-4 flex items-center justify-between px-4">
-            {/* Left: showing X–Y of Z */}
             <div className="text-lg text-Secondary">
               SHOWING {startIndex + 1}–{Math.min(endIndex, filterUsers.length)}{" "}
               OF {filterUsers.length}
             </div>
-
-            {/* Right: MUI Pagination */}
             <Stack spacing={2}>
               <Pagination
                 count={totalPages}
@@ -160,12 +126,10 @@ const Users = () => {
                 siblingCount={0}
                 boundaryCount={1}
                 sx={{
-                  "& .MuiPaginationItem-root": {
-                    color: "#727272", // text color
-                  },
+                  "& .MuiPaginationItem-root": { color: "#727272" },
                   "& .Mui-selected": {
-                    backgroundColor: "#00C1C0 !important", // active page bg
-                    color: "white", // active page text
+                    backgroundColor: "#00C1C0 !important",
+                    color: "white",
                   },
                 }}
               />
@@ -174,21 +138,14 @@ const Users = () => {
         )}
       </div>
 
-      {/* Modals */}
+      {/* View Modal */}
       <UserModal
         user={selectedUser}
         onClose={() => setSelectedUser(null)}
-        onBlock={handleRequestBlock} // use centralized block
-      />
-
-      <ConfirmBlockModal
-        open={blockModalOpen}
-        user={userToBlock} // optional, to show user name
-        onConfirm={handleConfirmBlock}
-        onCancel={handleCancelBlock}
       />
     </div>
   );
 };
 
 export default Users;
+

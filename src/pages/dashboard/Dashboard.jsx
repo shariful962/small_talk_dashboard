@@ -14,6 +14,7 @@ import {
 import { Select, MenuItem } from "@mui/material";
 import { FaBan, FaEye } from "react-icons/fa";
 import { LuEye } from "react-icons/lu";
+import { users } from "../users/data";
 
 
 
@@ -55,56 +56,7 @@ const Dashboard = () => {
     setSelectedYear(e.target.value);
   };
 
-  const users = [
-    {
-      id: "01",
-      name: "Robert Fox",
-      email: "fox@email",
-      phone: "+123124",
-      date: "02-24-2024",
-      avatar: "https://i.pravatar.cc/40?img=1", // placeholder avatar
-    },
-    {
-      id: "02",
-      name: "Robert Fox",
-      email: "fox@email",
-      phone: "+123124",
-      date: "02-24-2024",
-      avatar: "https://i.pravatar.cc/40?img=2",
-    },
-    {
-      id: "03",
-      name: "Robert Fox",
-      email: "fox@email",
-      phone: "+123124",
-      date: "02-24-2024",
-      avatar: "https://i.pravatar.cc/40?img=3",
-    },
-      {
-      id: "04",
-      name: "Robert Fox",
-      email: "fox@email",
-      phone: "+123124",
-      date: "02-24-2024",
-      avatar: "https://i.pravatar.cc/40?img=4",
-    },
-      {
-      id: "05",
-      name: "Robert Fox",
-      email: "fox@email",
-      phone: "+123124",
-      date: "02-24-2024",
-      avatar: "https://i.pravatar.cc/40?img=5",
-    },
-      {
-      id: "06",
-      name: "Robert Fox",
-      email: "fox@email",
-      phone: "+123124",
-      date: "02-24-2024",
-      avatar: "https://i.pravatar.cc/40?img=6",
-    },
-  ];
+ 
 
   return (
     <div className="p-4 bg-Primary min-h-[calc(100vh-100px)] px-4">
@@ -174,7 +126,7 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody  className="bg-white text-[#154452]">
-                {users.map(user=>(
+                {users.slice(0,5).map(user=>(
                   <tr key={user.id} className="border-b border-[#E8E8F5]">
                     <td className="px-4 py-3">{user.id}</td>
                     <td className="px-4 py-3 flex items-center gap-x-2">
@@ -185,7 +137,7 @@ const Dashboard = () => {
                     <td className="px-4 py-3">{user.phone}</td>
                     <td className="px-4 py-3">{user.date}</td>
                     <td className="px-4 py-3 flex items-center gap-x-3">
-                      <FaBan size={20} className="text-Secondary cursor-pointer" />
+                      
                       <LuEye size={20} className="text-[#154452] cursor-pointer"/>
                     </td>
                     

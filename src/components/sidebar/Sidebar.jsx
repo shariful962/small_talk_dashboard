@@ -49,9 +49,9 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 <button className="cursor-pointer">
                   <img src={Icons.navLogo} alt="nav-logo" className="w-40 h-40" />
                 </button>
-                <h1 className="ml-2 font-EBGaramond text-[28px] md:text-[24px] lg:text-[2rem] ">
+                {/* <h1 className="ml-2 font-EBGaramond text-[28px] md:text-[24px] lg:text-[2rem] ">
                  Admin Pannel
-                </h1>
+                </h1> */}
               </div>
 
               {/* navigation section */}
