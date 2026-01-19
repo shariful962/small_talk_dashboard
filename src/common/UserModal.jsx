@@ -7,12 +7,10 @@ const UserModal = ({ user, onClose, onBlock }) => {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg w-[400px] p-6 relative">
-        <h2 className="title text-center text-textClr mb-1">User Details</h2>
-        <p className="text-center text-[#919191] mb-4">
-          See all details about {user.name}
-        </p>
-        <div className="flex flex-row items-center gap-3 mb-4 px-7">
-          <img src={user.avatar} alt={user.name} className="w-13 h-13 rounded-full" />
+        <h2 className="title text-center text-textClr mb-3">User Details</h2>
+      
+        <div className="flex flex-col items-center justify-center gap-3 mb-4 px-7">
+          <img src={user.avatar} alt={user.name} className="w-15 h-15 rounded-full" />
           <p className="font-medium text-xl md:text-2xl">{user.name}</p>
         </div>
         <div className="space-y-2 px-7">
@@ -35,17 +33,18 @@ const UserModal = ({ user, onClose, onBlock }) => {
         </div>
         <div className="flex items-center justify-center gap-2 mt-6 px-7">
           <button
-            className="px-4 py-2 border border-Secondary text-Secondary rounded w-1/2 hover:bg-Secondary hover:text-white cursor-pointer"
+            className="w-full px-4 py-2 border border-Secondary text-Secondary rounded  hover:bg-Secondary hover:text-white cursor-pointer"
+            
             onClick={onClose}
           >
             Cancel
           </button>
-          <button
+          {/* <button
             className="px-4 py-2 bg-Secondary text-white rounded w-1/2 cursor-pointer"
             onClick={() => onBlock(user)} // now centralized
           >
             Block
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

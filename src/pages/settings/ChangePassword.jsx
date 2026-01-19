@@ -4,6 +4,8 @@ import { FiArrowLeft } from "react-icons/fi";
 import { GoArrowLeft } from "react-icons/go";
 import { useNavigate } from "react-router";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { toast } from "react-toastify";
+import { ClipLoader } from "react-spinners";
 
 const ChangePassword = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +17,8 @@ const ChangePassword = () => {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmNewPassword, setShowConfirmNewPassword] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -24,22 +27,29 @@ const ChangePassword = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setErrorMsg("");
+    if(!formData.currentPassword || !formData.newPassword || !formData.confirmNewPassword){
+      setErrorMsg("every field must required");
+      return;
+    }
     if (formData.newPassword !== formData.confirmNewPassword) {
-      setErrorMessage("Passwords do not match!");
+      setErrorMsg("Passwords do not match!");
       console.log("Passwords do not match"); // Debugging log
       return 
-    } else {
-      setErrorMessage(""); // clear error
-      console.log("Password changed successfully");
-      navigate('/settings')
-    }
+    } 
+    setLoading(true);
+    setTimeout(() => {
+      toast.success("Password Change Successfully!");
+      navigate("/settings");
+      setLoading(false);
+    }, 800);
   };
 
   return (
     <div className="p-4 bg-Primary min-h-[calc(100vh-100px)] px-4">
       <div className="bg-white shadow-custom rounded-[10px]  mt-5 min-h-[calc(100vh-155px)] w-full">
-        <div className="w-full h-[80px] text-white bg-Secondary flex items-center gap-x-4 px-4 rounded-tl-[10px] rounded-tr-[10px]">
-          <button onClick={() => navigate("/settings")}>
+        <div className="w-full h-[80px] text-white bg-linear-to-r from-[#00C1C0] to-[#AC3EC1] flex items-center gap-x-4 px-4 rounded-tl-[10px] rounded-tr-[10px]">
+          <button onClick={() => navigate("/settings")} className="cursor-pointer">
             <GoArrowLeft size={24} />
           </button>
           <h1 className="title text-white">Change Password</h1>
@@ -56,12 +66,12 @@ const ChangePassword = () => {
                 value={formData.currentPassword}
                 onChange={handleChange}
                 className="form-control"
-                placeholder="*******"
+                placeholder="Current password"
               />
               <button
                 type="button"
                 onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                className="absolute right-3 top-[50px] text-gray-400"
+                className="absolute right-3 top-9.5 text-gray-400"
               >
                 {showCurrentPassword ? (
                   <FiEyeOff size={20} />
@@ -79,12 +89,12 @@ const ChangePassword = () => {
                 value={formData.newPassword}
                 onChange={handleChange}
                 className="form-control"
-                placeholder="*******"
+                placeholder="New password"
               />
               <button
                 type="button"
                 onClick={() => setShowNewPassword(!showNewPassword)}
-                className="absolute right-3 top-[50px] text-gray-400"
+                className="absolute right-3 top-9.5 text-gray-400"
               >
                 {showNewPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
               </button>
@@ -98,14 +108,14 @@ const ChangePassword = () => {
                 value={formData.confirmNewPassword}
                 onChange={handleChange}
                 className="form-control"
-                placeholder="*******"
+                placeholder="Confirm new password"
               />
               <button
                 type="button"
                 onClick={() =>
                   setShowConfirmNewPassword(!showConfirmNewPassword)
                 }
-                className="absolute right-3 top-[50px] text-gray-400"
+                className="absolute right-3 top-9.5 text-gray-400"
               >
                 {showConfirmNewPassword ? (
                   <FiEyeOff size={20} />
@@ -117,26 +127,28 @@ const ChangePassword = () => {
             <div className="flex justify-end mt-2">
               <button
                 type="button"
-                onClick={() => navigate("/forgotpass")}
-                className="text-sm text-[#14B8A6] hover:underline"
+                onClick={() => navigate("/forgotpassword")}
+                className="text-sm text-[#14B8A6] hover:underline cursor-pointer"
               >
                 Forgot Password?
               </button>
             </div>
 
-            {errorMessage && (
-              <p className="text-red-500 text-sm mt-2">{errorMessage}</p>
-            )}
+            
 
             {/* Submit */}
-            <div className="text-center mt-8">
+            <div className="text-center mt-6">
               <button
                 type="submit"
-                className="w-full h-[50px]  bg-Secondary text-white py-2 text-xl font-bold rounded-md hover:bg-[#c45e38] transition cursor-pointer"
+                className="w-full h-[50px]  bg-linear-to-r from-[#00C1C0] to-[#AC3EC1] text-white py-2 text-xl font-bold rounded-md hover:bg-[#c45e38] transition cursor-pointer"
+                disabled={loading}
               >
-                Change Password
+                {loading ? <ClipLoader size={22} color="FFF" /> : "Change Password"}
               </button>
             </div>
+            {errorMsg && (
+              <p className="text-red-500 text-sm mt-2">{errorMsg}</p>
+            )}
           </form>
         </div>
       </div>

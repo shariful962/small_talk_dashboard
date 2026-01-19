@@ -4,8 +4,7 @@ import { useNavigate } from "react-router";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 
-
-const TermsAndCondition = () => {
+const AboutUs = () => {
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(`
@@ -42,10 +41,11 @@ const TermsAndCondition = () => {
             >
               <GoArrowLeft size={24} />
             </button>
-            <h1 className="title text-white">Terms & Conditions</h1>
+            <h1 className="title text-white">About Us</h1>
           </div>
         </div>
-         <div className="max-w-4xl mx-auto p-6 mt-10 bg-white shadow-custome rounded-lg">
+
+        <div className="max-w-4xl mx-auto p-6 mt-10 bg-white shadow-custome rounded-lg">
           {isEditing ? (
             <div>
               <ReactQuill
@@ -77,10 +77,9 @@ const TermsAndCondition = () => {
             </div>
           )}
         </div>
-
       </div>
     </div>
   );
 };
 
-export default TermsAndCondition;
+export default AboutUs;

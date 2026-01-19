@@ -14,6 +14,7 @@ import Settings from "../pages/settings/Settings";
 import ChangePassword from "../pages/settings/ChangePassword";
 import Privacy from "../pages/settings/Privacy";
 import TermsAndCondition from "../pages/settings/TermsAndCondition";
+import AboutUs from "../pages/settings/AboutUs"
 
 
 const router = createBrowserRouter([
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
       { path: "settings/changepass", element: <ChangePassword/> },
       { path: "settings/privacy", element: <Privacy/> },
       { path: "settings/terms", element: <TermsAndCondition/> },
-      { path: "settings/about", element: <ChangePassword/> },
+      { path: "settings/about", element: <AboutUs/> },
     ],
   },
 ]);

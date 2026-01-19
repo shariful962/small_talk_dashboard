@@ -35,7 +35,7 @@ const Subscription = () => {
     <div className="p-4 bg-Primary min-h-[calc(100vh-100px)] px-4">
       <div className="bg-white shadow-custom rounded-[10px]  mt-5 min-h-[calc(100vh-155px)]">
         {/* header section  */}
-        <div className="bg-Secondary px-6 py-4 rounded-tl-[10px] rounded-tr-[10px]">
+        <div className="bg-linear-to-r from-[#00C1C0] to-[#AC3EC1] px-6 py-4 rounded-tl-[10px] rounded-tr-[10px]">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
             <div>
               <h2 className="title text-white">Subscriptions</h2>
@@ -144,7 +144,8 @@ const Subscription = () => {
                     color: "#727272", // text color
                   },
                   "& .Mui-selected": {
-                    backgroundColor: "#00C1C0 !important", // active page bg
+                    // backgroundColor: "#00C1C0 !important", // active page bg
+                    background: "linear-gradient(to right, #00C1C0, #AC3EC1)",
                     color: "white", // active page text
                   },
                 }}

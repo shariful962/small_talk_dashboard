@@ -49,9 +49,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 <button className="cursor-pointer">
                   <img src={Icons.navLogo} alt="nav-logo" className="w-40 h-40" />
                 </button>
-                {/* <h1 className="ml-2 font-EBGaramond text-[28px] md:text-[24px] lg:text-[2rem] ">
-                 Admin Pannel
-                </h1> */}
+               
               </div>
 
               {/* navigation section */}
@@ -64,7 +62,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                     className={({ isActive }) =>
                       `px-3 py-2 rounded text-xl ${
                         location.pathname.startsWith(link.path)
-                          ? "bg-Secondary text-white"
+                          ? "bg-linear-to-r from-[#00C1C0] to-[#AC3EC1] text-white"
                           : "text-textClr"
                       }`
                     }
@@ -89,7 +87,8 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             <div className="p-4">
               <button
                 onClick={() => setShowLogoutModal(true)}
-                className="w-full border border-Secondary hover:bg-Secondary hover:text-white text-Secondary px-3 py-2 rounded text-xl flex items-center justify-center gap-x-2 cursor-pointer duration-300"
+                className="w-full border border-Secondary hover:bg-linear-to-r from-[#00C1C0] to-[#AC3EC1] hover:text-white text-Secondary px-3 py-2 rounded text-xl flex items-center justify-center gap-x-2 cursor-pointer duration-300"
+                // className="w-full bg-linear-to-r from-[#00C1C0] to-[#AC3EC1] text-xl flex items-center justify-center gap-x-2 cursor-pointer px-3 py-2 rounded text-white"
               >
                 <span><CiLogout/></span>Logout
               </button>

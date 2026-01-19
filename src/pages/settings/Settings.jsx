@@ -7,7 +7,7 @@ const Settings = () => {
   return (
     <div className="p-4 bg-Primary min-h-[calc(100vh-100px)] px-4">
       <div className="bg-white shadow-custom rounded-[10px]  mt-5 min-h-[calc(100vh-155px)] w-full">
-        <div className="w-full h-[80px] text-white bg-Secondary flex items-center justify-start px-4 rounded-tl-[10px] rounded-tr-[10px]">
+        <div className="w-full h-[80px] text-white bg-linear-to-r from-[#00C1C0] to-[#AC3EC1] flex items-center justify-start px-4 rounded-tl-[10px] rounded-tr-[10px]">
           <h1 className="title text-white">Settings</h1>
         </div>
         <div className="px-4 lg:px-8 hover:bg-gray-100 duration-300">

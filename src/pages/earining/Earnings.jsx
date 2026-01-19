@@ -69,7 +69,7 @@ const Earnings = () => {
   return (
     <div className="p-4 bg-Primary min-h-[calc(100vh-100px)] px-4">
       <div className="bg-white shadow-custom rounded-[10px]  mt-5 ">
-        <div className="bg-Secondary px-6 py-4 rounded-tl-[10px] rounded-tr-[10px]">
+        <div className="bg-linear-to-r from-[#00C1C0] to-[#AC3EC1] px-6 py-4 rounded-tl-[10px] rounded-tr-[10px]">
           <h2 className="title text-white">Earnings</h2>
         </div>
         {/* Chart Section */}
@@ -111,7 +111,7 @@ const Earnings = () => {
           </h1>
           <div className="overflow-x-auto  rounded-lg">
             <table className="w-full bg-white text-left">
-              <thead className="bg-Secondary text-white">
+              <thead className="bg-linear-to-r from-[#00C1C0] to-[#AC3EC1] text-white">
                 <tr>
                   <th className="px-4 py-3">S.lD</th>
                   <th className="px-4 py-3">Full Name</th>
@@ -180,7 +180,8 @@ const Earnings = () => {
                     color: "#727272", // text color
                   },
                   "& .Mui-selected": {
-                    backgroundColor: "#00C1C0 !important", // active page bg
+                    // backgroundColor: "#00C1C0 !important", // active page bg
+                    background: "linear-gradient(to right, #00C1C0, #AC3EC1)",
                     color: "white", // active page text
                   },
                 }}

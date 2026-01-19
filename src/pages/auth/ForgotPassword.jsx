@@ -42,7 +42,7 @@ const ForgotPassword = () => {
         <div className="flex justify-center mb-4">
           <div className="flex items-center gap-x-3">
             <button
-              onClick={() => navigate("/")}
+              onClick={() => navigate(-1)}
               className="text-[#1F1D1D] cursor-pointer"
             >
               <IoArrowBack size={22} />

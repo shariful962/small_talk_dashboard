@@ -151,7 +151,7 @@ const handlePaste = (e, index) => {
         {/* title + back */}
         <div className="flex justify-center mb-4">
           <div className="flex items-center gap-x-3">
-            <button onClick={() => navigate("/forgotpassword")} className="text-[#1F1D1D] cursor-pointer">
+            <button onClick={() => navigate(-1)} className="text-[#1F1D1D] cursor-pointer">
               <IoArrowBack size={22} />
             </button>
             <h2 className="text-2xl font-medium text-[#1F1D1D]">Verify Email</h2>

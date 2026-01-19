@@ -39,7 +39,7 @@ const Users = () => {
     <div className="p-4 bg-Primary h-[calc(100vh-100px)]">
       {/* Table Section */}
       <div className="bg-white shadow-custom rounded-[10px] mt-5 min-h-[calc(100vh-155px)]">
-        <div className="bg-Secondary px-6 py-4 rounded-tl-[10px] rounded-tr-[10px]">
+        <div className="bg-linear-to-r from-[#00C1C0] to-[#AC3EC1] px-6 py-4 rounded-tl-[10px] rounded-tr-[10px]"> 
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
             <h2 className="title text-white">User List</h2>
             <div className="flex flex-col md:flex-row gap-y-2 gap-x-8">
@@ -60,12 +60,13 @@ const Users = () => {
         {/* Users Table */}
         <div className="mt-7.5 overflow-x-auto px-4">
           <table className="w-full text-left">
-            <thead className="border-b border-[#154452]">
+            <thead 
+            className="border-b border-[#154452]">
               <tr>
-                <th className="px-4 py-3">S.lD</th>
+                <th className="px-4 py-3 hidden sm:table-cell">S.lD</th>
                 <th className="px-4 py-3">Full Name</th>
                 <th className="px-4 py-3">Email</th>
-                <th className="hidden md:table-cell px-4 py-3">Phone No</th>
+                {/* <th className="hidden md:table-cell px-4 py-3">Phone No</th> */}
                 <th className="hidden md:table-cell px-4 py-3">Joined Date</th>
                 <th className="px-4 py-3">Action</th>
               </tr>
@@ -74,7 +75,7 @@ const Users = () => {
               {paginatedUsers.length > 0 ? (
                 paginatedUsers.map((user) => (
                   <tr key={user.id} className="border-b border-[#E8E8F5]">
-                    <td className="px-4 py-3">{user.id}</td>
+                    <td className="px-4 py-3 hidden sm:table-cell">{user.id}</td>
                     <td className="px-4 py-3 flex items-center gap-x-2">
                       <img
                         src={user.avatar}
@@ -84,9 +85,9 @@ const Users = () => {
                       {user.name}
                     </td>
                     <td className="px-4 py-3">{user.email}</td>
-                    <td className="hidden md:table-cell px-4 py-3">
+                    {/* <td className="hidden md:table-cell px-4 py-3">
                       {user.phone}
-                    </td>
+                    </td> */}
                     <td className="hidden md:table-cell px-4 py-3">
                       {user.date}
                     </td>
@@ -113,7 +114,7 @@ const Users = () => {
         {/* Pagination Footer */}
         {totalPages > 1 && (
           <div className="mt-4 flex items-center justify-between px-4">
-            <div className="text-lg text-Secondary">
+            <div className="text-lg text-Secondary hidden md:block">
               SHOWING {startIndex + 1}–{Math.min(endIndex, filterUsers.length)}{" "}
               OF {filterUsers.length}
             </div>
@@ -128,7 +129,8 @@ const Users = () => {
                 sx={{
                   "& .MuiPaginationItem-root": { color: "#727272" },
                   "& .Mui-selected": {
-                    backgroundColor: "#00C1C0 !important",
+                    // backgroundColor: "#00C1C0 !important",
+                    background: "linear-gradient(to right, #00C1C0, #AC3EC1)",
                     color: "white",
                   },
                 }}
